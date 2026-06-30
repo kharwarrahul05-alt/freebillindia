@@ -3,12 +3,46 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FreeBillIndia – Free Invoice Generator for Indian Businesses</title>
-<meta name="description" content="Create professional invoices in 2 minutes. Free, no login needed. Works for kirana shops, coaching classes, tailors, freelancers and any small business." />
+<title>Free Invoice Generator India | Hindi, Marathi, Gujarati Bill Maker - FreeBillIndia</title>
+<meta name="description" content="Make free GST invoices online in English, Hindi, Marathi or Gujarati. No login, no signup. Download PDF or share on WhatsApp instantly. Perfect for kirana shops, tutors, tailors, freelancers and small businesses across India." />
+
+<!-- Keywords for search engines -->
+<meta name="keywords" content="free invoice generator india, free bill maker, GST invoice generator free, online bill banane wala app, invoice generator hindi, हिंदी इनवॉइस जनरेटर, मराठी बिल बनवा, ગુજરાતી બિલ બનાવો, marathi invoice maker, gujarati bill generator, kirana shop bill app, free billing software india, tuition fee receipt generator, tailor bill maker, small business invoice app, WhatsApp invoice generator, no login invoice maker, free GST bill format" />
+<meta name="author" content="FreeBillIndia" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://freebillindia.vercel.app/" />
+
+<!-- Open Graph (for WhatsApp / Facebook link previews) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://freebillindia.vercel.app/" />
+<meta property="og:title" content="FreeBillIndia – Free Invoice Generator (English, Hindi, Marathi, Gujarati)" />
+<meta property="og:description" content="Make professional GST invoices in 2 minutes. Free, no login. Available in Hindi, Marathi & Gujarati. Download PDF or share on WhatsApp instantly." />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="FreeBillIndia – Free Invoice Generator for Indian Businesses" />
+<meta name="twitter:description" content="Free GST invoice generator in English, Hindi, Marathi & Gujarati. No login. Download PDF or share on WhatsApp." />
+
 <meta name="google-site-verification" content="eUoiLyuFh9HBeCbxxCVNTRNDn3Uixqhf-coG1EildPE" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<!-- Structured data so Google understands this is a free tool -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "FreeBillIndia",
+  "url": "https://freebillindia.vercel.app/",
+  "description": "Free invoice and GST bill generator for Indian small businesses. Available in English, Hindi, Marathi and Gujarati. No login required.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+  "inLanguage": ["en", "hi", "mr", "gu"]
+}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -287,6 +321,9 @@
 <footer>
   <p>FreeBillIndia — Free invoice generator for Indian small businesses</p>
   <p style="margin-top:4px">No data is saved. Everything stays on your device.</p>
+  <p style="margin-top:10px;font-size:12px;color:#c4c8ce;max-width:480px;margin-left:auto;margin-right:auto">
+    Available in English, हिंदी (Hindi), मराठी (Marathi) and ગુજરાતી (Gujarati) — free bill aur invoice banane ka sabse aasaan tarika.
+  </p>
 </footer>
 
 <!-- MODAL -->
@@ -600,13 +637,20 @@ function downloadPDF() {
   const invNo = document.getElementById('inv-no').value || 'invoice';
   const custName = document.getElementById('cust-name').value || 'customer';
   const wrapper = document.createElement('div');
-  wrapper.style.cssText = 'padding:36px;background:#fff;width:620px;font-family:Arial,sans-serif';
+  wrapper.style.cssText = 'padding:36px;background:#fff;width:620px;font-family:Arial,sans-serif;position:fixed;top:0;left:-9999px;z-index:-1;';
   wrapper.innerHTML = buildInvoiceHTML();
+  document.body.appendChild(wrapper);
   html2pdf().set({
     margin: 0, filename: `${invNo}-${custName}.pdf`,
-    html2canvas: { scale: 2, useCORS: true },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  }).from(wrapper).save().then(() => showToast(t('toastDone')));
+  }).from(wrapper).save().then(() => {
+    document.body.removeChild(wrapper);
+    showToast(t('toastDone'));
+  }).catch(() => {
+    document.body.removeChild(wrapper);
+    showToast('Error — please try again');
+  });
 }
 
 function shareWhatsApp() {
