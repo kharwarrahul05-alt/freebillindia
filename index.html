@@ -670,10 +670,10 @@ function downloadPDF() {
   @media print { body { padding: 16px; } }
 </style>
 </head><body>${invoiceHTML}
-<script>
+<scr` + `ipt>
   window.onload = function() { window.print(); };
   window.onafterprint = function() { window.close(); };
-</script>
+</scr` + `ipt>
 </body></html>`);
   printWindow.document.close();
   showToast(t('toastDone'));
