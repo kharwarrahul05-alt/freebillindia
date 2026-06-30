@@ -520,6 +520,43 @@ function renderItems() {
   calcTotals();
 }
 
+function downloadPDF() {
+  showToast(t('toastPrep'));
+  const invNo = document.getElementById('inv-no').value || 'INV-001';
+  const custName = document.getElementById('cust-name').value || 'customer';
+
+  // 1. Create a temporary visible holder container so the browser rendering engine can see it
+  const holder = document.createElement('div');
+  holder.style.cssText = 'position: fixed; top: 0; left: 0; width: 680px; padding: 32px; background: #ffffff; min-height: 842px; z-index: -9999; opacity: 0; pointer-events: none;';
+  holder.innerHTML = buildInvoiceHTML();
+  document.body.appendChild(holder);
+
+  // 2. Target configuration for perfect rendering
+  const opt = {
+    margin: [10, 10, 10, 10],
+    filename: `${invNo}-${custName}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2, 
+      useCORS: true, 
+      logging: false,
+      letterRendering: true
+    },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+
+  // 3. Run generator and cleanly remove the temporary container afterwards
+  html2pdf().set(opt).from(holder).save().then(() => {
+    document.body.removeChild(holder);
+    showToast(t('toastDone'));
+  }).catch((err) => {
+    document.body.removeChild(holder);
+    showToast('Error — please try again');
+    console.error('PDF error:', err);
+  });
+}
+  
 function addItem() {
   items.push({ desc: '', qty: 1, rate: '' });
   renderItems();
