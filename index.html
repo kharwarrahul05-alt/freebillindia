@@ -11,7 +11,7 @@
 <meta name="author" content="FreeBillIndia" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://freebillindia.vercel.app/" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <!-- Open Graph (for WhatsApp / Facebook link previews) -->
 <meta property="og:type" content="website" />
@@ -633,165 +633,38 @@ function previewInvoice() {
 function closeModal() { document.getElementById('modal').classList.remove('open'); }
 
 function downloadPDF() {
-  const cur = getCurrency();
-  const gst = parseFloat(document.getElementById('gst').value) || 0;
-  const subtotal = items.reduce((s, it) => s + (+it.qty || 0) * (+it.rate || 0), 0);
-  const tax = subtotal * gst / 100;
-  const grand = subtotal + tax;
-  const get = id => document.getElementById(id).value.trim();
-  const bizName = get('biz-name') || 'Your Business';
-  const bizOwner = get('biz-owner');
-  const bizPhone = get('biz-phone');
-  const bizEmail = get('biz-email');
-  const bizAddr = get('biz-address');
-  const custName = get('cust-name') || 'Customer';
-  const custPhone = get('cust-phone');
-  const custAddr = get('cust-address');
-  const invNo = get('inv-no') || 'INV-001';
-  const invDate = get('inv-date');
-  const note = get('inv-note');
+  showToast(t('toastPrep'));
+  const invNo = document.getElementById('inv-no').value || 'INV-001';
+  const custName = document.getElementById('cust-name').value || 'customer';
 
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-  const pageW = 210;
-  const marginL = 18;
-  const marginR = 18;
-  let y = 20;
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = 'width:600px;background:#ffffff;padding:32px;';
+  wrapper.innerHTML = buildInvoiceHTML();
 
-  // Business name (left) + INVOICE (right)
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(18);
-  doc.setTextColor(17, 24, 39);
-  doc.text(bizName, marginL, y);
+  // Place it visibly within the viewport (but behind everything, fully transparent)
+  // so the browser actually computes layout and paints fonts before capture.
+  const holder = document.createElement('div');
+  holder.style.cssText = 'position:fixed;top:0;left:0;width:600px;height:auto;background:#fff;z-index:99999;visibility:visible;opacity:1;pointer-events:none;transform:translateX(-100vw);';
+  holder.appendChild(wrapper);
+  document.body.appendChild(holder);
 
-  doc.setFontSize(18);
-  doc.setTextColor(37, 99, 235);
-  doc.text('INVOICE', pageW - marginR, y, { align: 'right' });
-
-  y += 6;
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(10);
-  doc.setTextColor(107, 114, 128);
-  let leftY = y;
-  if (bizOwner) { doc.text(bizOwner, marginL, leftY); leftY += 5; }
-  if (bizPhone) { doc.text(bizPhone, marginL, leftY); leftY += 5; }
-  if (bizEmail) { doc.text(bizEmail, marginL, leftY); leftY += 5; }
-  if (bizAddr) { doc.text(doc.splitTextToSize(bizAddr, 80), marginL, leftY); leftY += 5; }
-
-  let rightY = y;
-  doc.text(invNo, pageW - marginR, rightY, { align: 'right' }); rightY += 5;
-  doc.text('Date: ' + invDate, pageW - marginR, rightY, { align: 'right' }); rightY += 5;
-
-  y = Math.max(leftY, rightY) + 6;
-
-  // Bill to box
-  doc.setFillColor(249, 250, 251);
-  doc.roundedRect(marginL, y, pageW - marginL - marginR, 22, 2, 2, 'F');
-  doc.setFontSize(8);
-  doc.setTextColor(156, 163, 175);
-  doc.text('BILL TO', marginL + 5, y + 6);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(11);
-  doc.setTextColor(17, 24, 39);
-  doc.text(custName, marginL + 5, y + 12);
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(9);
-  doc.setTextColor(55, 65, 81);
-  let custLine = [custPhone, custAddr].filter(Boolean).join('  •  ');
-  if (custLine) doc.text(doc.splitTextToSize(custLine, 160), marginL + 5, y + 18);
-
-  y += 30;
-
-  // Items table
-  const colDesc = marginL;
-  const colQty = pageW - marginR - 70;
-  const colRate = pageW - marginR - 45;
-  const colAmt = pageW - marginR;
-
-  doc.setFillColor(243, 244, 246);
-  doc.rect(marginL, y, pageW - marginL - marginR, 8, 'F');
-  doc.setFontSize(8);
-  doc.setTextColor(107, 114, 128);
-  doc.setFont('helvetica', 'bold');
-  doc.text('DESCRIPTION', colDesc + 2, y + 5.5);
-  doc.text('QTY', colQty, y + 5.5, { align: 'center' });
-  doc.text('RATE', colRate, y + 5.5, { align: 'right' });
-  doc.text('AMOUNT', colAmt, y + 5.5, { align: 'right' });
-  y += 8;
-
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(10);
-  doc.setTextColor(17, 24, 39);
-  const validItems = items.filter(it => it.desc || it.rate);
-  if (validItems.length === 0) {
-    y += 8;
-    doc.setTextColor(156, 163, 175);
-    doc.text('No items added', pageW / 2, y, { align: 'center' });
-    y += 4;
-  } else {
-    validItems.forEach(it => {
-      const amount = (+it.qty || 0) * (+it.rate || 0);
-      const descLines = doc.splitTextToSize(it.desc || '-', 90);
-      const rowH = Math.max(8, descLines.length * 5 + 3);
-      doc.text(descLines, colDesc + 2, y + 5.5);
-      doc.text(String(it.qty), colQty, y + 5.5, { align: 'center' });
-      doc.text(cur + (+it.rate || 0).toFixed(2), colRate, y + 5.5, { align: 'right' });
-      doc.text(cur + amount.toFixed(2), colAmt, y + 5.5, { align: 'right' });
-      doc.setDrawColor(243, 244, 246);
-      doc.line(marginL, y + rowH, pageW - marginR, y + rowH);
-      y += rowH;
+  setTimeout(() => {
+    html2pdf().set({
+      margin: [10, 10, 10, 10],
+      filename: `${invNo}-${custName}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: 600 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+    }).from(wrapper).save().then(() => {
+      document.body.removeChild(holder);
+      showToast(t('toastDone'));
+    }).catch((err) => {
+      document.body.removeChild(holder);
+      showToast('Error — please try again');
+      console.error('PDF error:', err);
     });
-  }
-
-  y += 6;
-
-  // Totals
-  doc.setFontSize(10);
-  doc.setTextColor(107, 114, 128);
-  doc.text('Subtotal', colRate, y, { align: 'right' });
-  doc.setTextColor(17, 24, 39);
-  doc.text(cur + subtotal.toFixed(2), colAmt, y, { align: 'right' });
-  y += 6;
-
-  if (gst > 0) {
-    doc.setTextColor(107, 114, 128);
-    doc.text(`GST (${gst}%)`, colRate, y, { align: 'right' });
-    doc.setTextColor(17, 24, 39);
-    doc.text(cur + tax.toFixed(2), colAmt, y, { align: 'right' });
-    y += 6;
-  }
-
-  doc.setDrawColor(17, 24, 39);
-  doc.setLineWidth(0.6);
-  doc.line(colRate - 25, y, pageW - marginR, y);
-  y += 6;
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(13);
-  doc.setTextColor(17, 24, 39);
-  doc.text('Total', colRate, y, { align: 'right' });
-  doc.text(cur + grand.toFixed(2), colAmt, y, { align: 'right' });
-  y += 10;
-
-  // Note
-  if (note) {
-    doc.setFillColor(255, 251, 234);
-    const noteLines = doc.splitTextToSize(note, pageW - marginL - marginR - 10);
-    const noteH = noteLines.length * 5 + 6;
-    doc.rect(marginL, y, pageW - marginL - marginR, noteH, 'F');
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(9);
-    doc.setTextColor(85, 85, 85);
-    doc.text(noteLines, marginL + 5, y + 6);
-    y += noteH + 6;
-  }
-
-  // Footer
-  doc.setFontSize(8);
-  doc.setTextColor(209, 213, 219);
-  doc.text('Generated with FreeBillIndia — freebillindia.vercel.app', pageW / 2, 285, { align: 'center' });
-
-  doc.save(`${invNo}-${custName}.pdf`);
-  showToast(t('toastDone'));
+  }, 150);
 }
 
 function shareWhatsApp() {
