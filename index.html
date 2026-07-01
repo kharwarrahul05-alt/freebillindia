@@ -1,173 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Free Invoice Generator India | Hindi, Marathi, Gujarati Bill Maker - FreeBillIndia</title>
-<meta name="description" content="Make free GST invoices online in English, Hindi, Marathi or Gujarati. No login, no signup. Download PDF or share on WhatsApp instantly. Perfect for kirana shops, tutors, tailors, freelancers and small businesses across India." />
-
-<meta name="keywords" content="free invoice generator india, free bill maker, GST invoice generator free, online bill banane wala app, invoice generator hindi, हिंदी इनवॉइस जनरेटर, मराठी बिल बनवा, ગુજરાતી બિલ બનાવો, marathi invoice maker, gujarati bill generator, kirana shop bill app, free billing software india, tuition fee receipt generator, tailor bill maker, small business invoice app, WhatsApp invoice generator, no login invoice maker, free GST bill format" />
-<meta name="author" content="FreeBillIndia" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://freebillindia.vercel.app/" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Invoice Generator India | Hindi Marathi Gujarati Bill Maker - FreeBillIndia</title>
+<meta name="description" content="Make free GST invoices online in English, Hindi, Marathi or Gujarati. No login. Download PDF or share on WhatsApp. For kirana shops, tutors, tailors, freelancers."/>
+<meta name="keywords" content="free invoice generator india, GST bill maker free, hindi invoice generator, हिंदी इनवॉइस, मराठी बिल, ગુજરાતી બિલ, marathi invoice, gujarati bill, kirana shop bill, free billing software india"/>
+<meta name="google-site-verification" content="eUoiLyuFh9HBeCbxxCVNTRNDn3Uixqhf-coG1EildPE"/>
+<meta property="og:title" content="FreeBillIndia – Free Invoice Generator (Hindi, Marathi, Gujarati)"/>
+<meta property="og:description" content="Free GST invoice in 2 minutes. No login. Download PDF or share on WhatsApp."/>
+<meta property="og:url" content="https://freebillindia.vercel.app/"/>
+<link rel="canonical" href="https://freebillindia.vercel.app/"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://freebillindia.vercel.app/" />
-<meta property="og:title" content="FreeBillIndia – Free Invoice Generator (English, Hindi, Marathi, Gujarati)" />
-<meta property="og:description" content="Make professional GST invoices in 2 minutes. Free, no login. Available in Hindi, Marathi & Gujarati. Download PDF or share on WhatsApp instantly." />
-<meta property="og:locale" content="en_IN" />
-
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="FreeBillIndia – Free Invoice Generator for Indian Businesses" />
-<meta name="twitter:description" content="Free GST invoice generator in English, Hindi, Marathi & Gujarati. No login. Download PDF or share on WhatsApp." />
-
-<meta name="google-site-verification" content="eUoiLyuFh9HBeCbxxCVNTRNDn3Uixqhf-coG1EildPE" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "FreeBillIndia",
-  "url": "https://freebillindia.vercel.app/",
-  "description": "Free invoice and GST bill generator for Indian small businesses. Available in English, Hindi, Marathi and Gujarati. No login required.",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Any (Web Browser)",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-  "inLanguage": ["en", "hi", "mr", "gu"]
-}
-</script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --green: #16a34a; --green-light: #dcfce7; --green-dark: #14532d;
-    --ink: #111827; --ink-2: #374151; --ink-3: #6b7280; --ink-4: #9ca3af;
-    --line: #e5e7eb; --line-strong: #d1d5db; --surface: #f9fafb;
-    --white: #ffffff; --blue: #2563eb; --radius: 10px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  }
-  body { font-family: 'Inter', 'Noto Sans Devanagari', 'Noto Sans Gujarati', sans-serif; background: var(--surface); color: var(--ink); font-size: 15px; line-height: 1.6; min-height: 100vh; }
-
-  /* NAV */
-  nav { background: var(--white); border-bottom: 1px solid var(--line); padding: 0 1.5rem; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; gap: 12px; }
-  .logo { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; display: flex; align-items: center; gap: 1px; flex-shrink: 0; }
-  .logo .l-free { color: #FF9933; }
-  .logo .l-bill { color: #ffffff; -webkit-text-stroke: 1.5px #000080; paint-order: stroke fill; }
-  .logo .l-india { color: #138808; }
-  .nav-right { display: flex; align-items: center; gap: 10px; }
-  .nav-tag { font-size: 12px; background: var(--green-light); color: var(--green-dark); padding: 3px 10px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
-
-  /* LANGUAGE SWITCHER */
-  .lang-switcher { display: flex; gap: 4px; }
-  .lang-btn { font-family: inherit; font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 20px; border: 1.5px solid var(--line-strong); background: var(--white); color: var(--ink-3); cursor: pointer; transition: all 0.15s; }
-  .lang-btn:hover { border-color: var(--green); color: var(--green); }
-  .lang-btn.active { background: var(--green); color: #fff; border-color: var(--green); }
-
-  /* HERO */
-  .hero { text-align: center; padding: 2.5rem 1.5rem 1.5rem; max-width: 600px; margin: 0 auto; }
-  .hero h1 { font-size: clamp(22px, 5vw, 34px); font-weight: 700; color: var(--ink); line-height: 1.25; letter-spacing: -0.5px; }
-  .hero h1 span { color: var(--green); }
-  .hero p { margin-top: 10px; font-size: 15px; color: var(--ink-3); }
-  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; }
-  .pill { font-size: 13px; background: var(--white); border: 1px solid var(--line-strong); color: var(--ink-2); padding: 4px 12px; border-radius: 20px; }
-
-  /* MAIN */
-  .container { max-width: 720px; margin: 0 auto; padding: 0 1rem 4rem; }
-  .card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
-  .card-title { font-size: 12px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
-  .card-title svg { width: 14px; height: 14px; color: var(--green); flex-shrink: 0; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-  .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
-  .field:last-child { margin-bottom: 0; }
-  .field label { font-size: 13px; font-weight: 500; color: var(--ink-2); }
-  .field input, .field select, .field textarea { font-family: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 9px 12px; width: 100%; outline: none; transition: border-color 0.15s, box-shadow 0.15s; -webkit-appearance: none; }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(22,163,74,0.12); background: var(--white); }
-  .field textarea { resize: none; height: 64px; }
-  .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
-
-  /* ITEMS */
-  .items-header { display: grid; grid-template-columns: 2.5fr 0.8fr 1fr 0.5fr; gap: 8px; padding: 0 0 8px; font-size: 12px; font-weight: 600; color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.05em; }
-  .item-row { display: grid; grid-template-columns: 2.5fr 0.8fr 1fr 0.5fr; gap: 8px; align-items: center; margin-bottom: 8px; }
-  .item-row input { font-family: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius); padding: 9px 12px; width: 100%; outline: none; transition: border-color 0.15s, box-shadow 0.15s; }
-  .item-row input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(22,163,74,0.12); background: var(--white); }
-  .del-btn { background: none; border: 1px solid var(--line-strong); border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink-4); transition: all 0.15s; flex-shrink: 0; }
-  .del-btn:hover { border-color: #fca5a5; color: #dc2626; background: #fef2f2; }
-  .add-item-btn { width: 100%; padding: 10px; background: none; border: 1.5px dashed var(--line-strong); border-radius: var(--radius); font-family: inherit; font-size: 14px; color: var(--ink-3); cursor: pointer; margin-top: 4px; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-  .add-item-btn:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
-  .divider { height: 1px; background: var(--line); margin: 16px 0; }
-  .totals-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
-  .totals-row span:first-child { color: var(--ink-3); }
-  .totals-row span:last-child { font-weight: 500; color: var(--ink); }
-  .totals-row.grand { font-size: 17px; padding-top: 10px; border-top: 2px solid var(--ink); margin-top: 4px; }
-  .totals-row.grand span { font-weight: 700; color: var(--ink); }
-
-  /* ACTIONS */
-  .actions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 1.25rem; }
-  .btn { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 13px 10px; border-radius: var(--radius); font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
-  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
-  .btn-outline { background: var(--white); color: var(--ink-2); border: 1px solid var(--line-strong); }
-  .btn-outline:hover { background: var(--surface); }
-  .btn-primary { background: var(--blue); color: #fff; }
-  .btn-primary:hover { background: #1d4ed8; }
-  .btn-whatsapp { background: #25D366; color: #fff; }
-  .btn-whatsapp:hover { background: #1db954; }
-
-  /* TOAST */
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--ink); color: #fff; font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 20px; transition: transform 0.3s ease; z-index: 200; white-space: nowrap; }
-  .toast.show { transform: translateX(-50%) translateY(0); }
-
-  /* MODAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; overflow-y: auto; padding: 20px; }
-  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
-  .modal-box { background: var(--white); border-radius: 16px; width: 100%; max-width: 620px; padding: 2rem; margin: auto; position: relative; }
-  .modal-close { position: absolute; top: 14px; right: 14px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 8px; padding: 5px 12px; font-size: 13px; font-weight: 500; color: var(--ink-2); cursor: pointer; font-family: inherit; }
-
-  /* HOW IT WORKS */
-  .how-section { margin-top: 2rem; margin-bottom: 1rem; }
-  .how-title { text-align: center; font-size: 13px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 14px; }
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .step { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; text-align: center; }
-  .step-num { width: 30px; height: 30px; background: var(--green-light); color: var(--green-dark); border-radius: 50%; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
-  .step p { font-size: 13px; color: var(--ink-2); line-height: 1.4; }
-
-  footer { text-align: center; padding: 2rem 1rem; font-size: 13px; color: var(--ink-4); border-top: 1px solid var(--line); margin-top: 2rem; }
-
-  /* INVOICE STYLES */
-  .inv { font-family: Arial, sans-serif; color: #111; }
-  .inv-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
-  .inv-biz-name { font-size: 22px; font-weight: 700; }
-  .inv-meta { text-align: right; }
-  .inv-label-big { font-size: 22px; font-weight: 700; color: #2563eb; }
-  .inv-small { font-size: 13px; color: #6b7280; margin-top: 2px; }
-  .inv-bill-box { background: #f9fafb; border-radius: 8px; padding: 14px; margin-bottom: 20px; }
-  .inv-section-label { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
-  .inv-cust-name { font-size: 15px; font-weight: 600; }
-  .inv-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .inv-table th { text-align: left; padding: 8px 10px; background: #f3f4f6; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
-  .inv-table td { padding: 9px 10px; border-bottom: 1px solid #f3f4f6; }
-  .inv-totals { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; margin-top: 16px; }
-  .inv-trow { display: flex; gap: 24px; font-size: 14px; }
-  .inv-trow span:first-child { color: #6b7280; }
-  .inv-trow span:last-child { min-width: 90px; text-align: right; font-weight: 500; }
-  .inv-trow.grand { font-size: 17px; font-weight: 700; padding-top: 10px; border-top: 2px solid #111; margin-top: 4px; }
-  .inv-trow.grand span { color: #111; }
-  .inv-note { margin-top: 20px; padding: 12px; background: #fffbea; border-left: 3px solid #f59e0b; border-radius: 4px; font-size: 13px; color: #555; }
-  .inv-footer-line { margin-top: 28px; text-align: center; font-size: 12px; color: #d1d5db; border-top: 1px solid #f3f4f6; padding-top: 12px; }
-  .inv-badge { display: inline-block; background: #dcfce7; color: #14532d; border-radius: 4px; padding: 3px 8px; font-size: 11px; font-weight: 600; margin-top: 6px; }
-
-  @media (max-width: 540px) {
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .items-header { display: none; }
-    .item-row { grid-template-columns: 1fr 1fr 38px; grid-template-rows: auto auto; }
-    .item-row input:first-child { grid-column: 1 / -1; }
-    .actions { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; }
-    .lang-btn { font-size: 11px; padding: 3px 7px; }
-    .nav-tag { display: none; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --saffron:#FF9933;--navy:#000080;--igreen:#138808;
+  --ink:#111827;--ink2:#374151;--ink3:#6b7280;--ink4:#9ca3af;
+  --line:#e5e7eb;--lines:#d1d5db;--bg:#f9fafb;--white:#fff;
+  --green:#16a34a;--gl:#dcfce7;--gd:#14532d;--blue:#2563eb;
+  --r:10px;--sh:0 1px 3px rgba(0,0,0,.08);
+}
+body{font-family:'Inter','Noto Sans Devanagari','Noto Sans Gujarati',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;min-height:100vh}
+nav{background:var(--white);border-bottom:1px solid var(--line);padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;gap:10px}
+.logo{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:1px;flex-shrink:0}
+.l-free{color:var(--saffron)}.l-bill{color:#fff;-webkit-text-stroke:1.5px var(--navy);paint-order:stroke fill}.l-india{color:var(--igreen)}
+.nav-r{display:flex;align-items:center;gap:8px}
+.nav-tag{font-size:11px;background:var(--gl);color:var(--gd);padding:3px 9px;border-radius:20px;font-weight:500;white-space:nowrap}
+.lang-sw{display:flex;gap:3px}
+.lb{font-family:inherit;font-size:12px;font-weight:600;padding:4px 8px;border-radius:20px;border:1.5px solid var(--lines);background:var(--white);color:var(--ink3);cursor:pointer;transition:all .15s}
+.lb:hover{border-color:var(--green);color:var(--green)}
+.lb.active{background:var(--green);color:#fff;border-color:var(--green)}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;max-width:580px;margin:0 auto}
+.hero h1{font-size:clamp(21px,5vw,33px);font-weight:700;color:var(--ink);line-height:1.25;letter-spacing:-.4px}
+.hero h1 span{color:var(--green)}
+.hero p{margin-top:10px;font-size:15px;color:var(--ink3)}
+.pills{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:14px}
+.pill{font-size:12px;background:var(--white);border:1px solid var(--lines);color:var(--ink2);padding:3px 11px;border-radius:20px}
+.wrap{max-width:700px;margin:0 auto;padding:0 1rem 4rem}
+.how{margin:1.5rem 0 1rem;text-align:center}
+.how-t{font-size:12px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.step{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:.9rem;text-align:center}
+.snum{width:28px;height:28px;background:var(--gl);color:var(--gd);border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 7px}
+.step p{font-size:12px;color:var(--ink2);line-height:1.4}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.25rem;margin-bottom:.9rem;box-shadow:var(--sh)}
+.ct{font-size:11px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.ct svg{width:13px;height:13px;color:var(--green);flex-shrink:0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
+.f{display:flex;flex-direction:column;gap:4px;margin-bottom:11px}
+.f:last-child{margin-bottom:0}
+.f label{font-size:13px;font-weight:500;color:var(--ink2)}
+.f input,.f select,.f textarea{font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--lines);border-radius:var(--r);padding:8px 11px;width:100%;outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,163,74,.12);background:var(--white)}
+.f textarea{resize:none;height:60px}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;padding-right:30px;cursor:pointer}
+.ih{display:grid;grid-template-columns:2.5fr .8fr 1fr .5fr;gap:7px;padding:0 0 7px;font-size:11px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.05em}
+.ir{display:grid;grid-template-columns:2.5fr .8fr 1fr .5fr;gap:7px;align-items:center;margin-bottom:7px}
+.ir input{font-family:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--lines);border-radius:var(--r);padding:8px 11px;width:100%;outline:none;transition:border-color .15s}
+.ir input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,163,74,.12);background:var(--white)}
+.del{background:none;border:1px solid var(--lines);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink4);transition:all .15s;flex-shrink:0}
+.del:hover{border-color:#fca5a5;color:#dc2626;background:#fef2f2}
+.add-btn{width:100%;padding:9px;background:none;border:1.5px dashed var(--lines);border-radius:var(--r);font-family:inherit;font-size:14px;color:var(--ink3);cursor:pointer;margin-top:3px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px}
+.add-btn:hover{border-color:var(--green);color:var(--green);background:var(--gl)}
+.div{height:1px;background:var(--line);margin:14px 0}
+.tr{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.tr span:first-child{color:var(--ink3)}.tr span:last-child{font-weight:500;color:var(--ink)}
+.tr.grand{font-size:16px;padding-top:9px;border-top:2px solid var(--ink);margin-top:3px}
+.tr.grand span{font-weight:700;color:var(--ink)}
+.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:1.1rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 8px;border-radius:var(--r);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.btn svg{width:17px;height:17px;flex-shrink:0}
+.btn-o{background:var(--white);color:var(--ink2);border:1px solid var(--lines)}
+.btn-o:hover{background:var(--bg)}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:#1d4ed8}
+.btn-w{background:#25D366;color:#fff}
+.btn-w:hover{background:#1db954}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--ink);color:#fff;font-size:14px;font-weight:500;padding:9px 18px;border-radius:20px;transition:transform .3s;z-index:300;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;overflow-y:auto;padding:16px}
+.modal.open{display:flex;align-items:flex-start;justify-content:center}
+.mbox{background:var(--white);border-radius:16px;width:100%;max-width:600px;padding:1.75rem;margin:auto;position:relative}
+.mclose{position:absolute;top:12px;right:12px;background:var(--bg);border:1px solid var(--lines);border-radius:8px;padding:4px 11px;font-size:13px;font-weight:500;color:var(--ink2);cursor:pointer;font-family:inherit}
+.mclose:hover{background:var(--line)}
+footer{text-align:center;padding:1.75rem 1rem;font-size:12px;color:var(--ink4);border-top:1px solid var(--line);margin-top:1.5rem}
+/* Invoice preview styles */
+.inv{font-family:Arial,sans-serif;color:#111}
+.inv-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
+.inv-bn{font-size:20px;font-weight:700}
+.inv-lbl{font-size:20px;font-weight:700;color:#2563eb}
+.inv-sm{font-size:12px;color:#6b7280;margin-top:2px}
+.inv-bb{background:#f9fafb;border-radius:7px;padding:12px;margin-bottom:18px}
+.inv-sl{font-size:10px;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.inv-cn{font-size:14px;font-weight:600}
+.inv-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.inv-tbl th{text-align:left;padding:7px 9px;background:#f3f4f6;font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.inv-tbl td{padding:8px 9px;border-bottom:1px solid #f3f4f6}
+.inv-tots{display:flex;flex-direction:column;align-items:flex-end;gap:4px;margin-top:14px}
+.inv-tr{display:flex;gap:22px;font-size:13px}
+.inv-tr span:first-child{color:#6b7280}
+.inv-tr span:last-child{min-width:85px;text-align:right;font-weight:500}
+.inv-tr.grd{font-size:16px;font-weight:700;padding-top:8px;border-top:2px solid #111;margin-top:3px}
+.inv-tr.grd span{color:#111}
+.inv-note{margin-top:18px;padding:11px;background:#fffbea;border-left:3px solid #f59e0b;border-radius:4px;font-size:12px;color:#555}
+.inv-ft{margin-top:24px;text-align:center;font-size:11px;color:#d1d5db;border-top:1px solid #f0f0f0;padding-top:10px}
+.inv-badge{display:inline-block;background:#dcfce7;color:#14532d;border-radius:4px;padding:2px 7px;font-size:10px;font-weight:600;margin-top:5px}
+@media(max-width:520px){
+  .g2,.g3{grid-template-columns:1fr}
+  .ih{display:none}
+  .ir{grid-template-columns:1fr 1fr 32px;grid-template-rows:auto auto}
+  .ir input:first-child{grid-column:1/-1}
+  .actions{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .nav-tag{display:none}
+  .lb{font-size:11px;padding:3px 6px}
+}
 </style>
 </head>
 <body>
@@ -176,21 +126,21 @@
   <div class="logo">
     <span class="l-free">Free</span><span class="l-bill">Bill</span><span class="l-india">India</span>
   </div>
-  <div class="nav-right">
+  <div class="nav-r">
     <div class="nav-tag">100% Free · No Login</div>
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('hi')">हि</button>
-      <button class="lang-btn" onclick="setLang('mr')">म</button>
-      <button class="lang-btn" onclick="setLang('gu')">ગુ</button>
+    <div class="lang-sw">
+      <button class="lb active" onclick="setLang('en')">EN</button>
+      <button class="lb" onclick="setLang('hi')">हि</button>
+      <button class="lb" onclick="setLang('mr')">म</button>
+      <button class="lb" onclick="setLang('gu')">ગુ</button>
     </div>
   </div>
 </nav>
 
 <div class="hero">
-  <h1 id="hero-title">Make a professional invoice<br/><span id="hero-title-2">in 2 minutes</span></h1>
-  <p id="hero-sub">No signup. No app. Works on mobile. Download PDF or share instantly on WhatsApp.</p>
-  <div class="hero-pills">
+  <h1 id="h1">Make a professional invoice<br/><span id="h1b">in 2 minutes</span></h1>
+  <p id="hsub">No signup. No app. Works on mobile. Download PDF or share on WhatsApp.</p>
+  <div class="pills">
     <span class="pill">🛒 Kirana shops</span>
     <span class="pill">📚 Coaching classes</span>
     <span class="pill">✂️ Tailors</span>
@@ -200,526 +150,354 @@
   </div>
 </div>
 
-<div class="container">
-
-  <div class="how-section">
-    <div class="how-title" id="how-title">How it works</div>
+<div class="wrap">
+  <div class="how">
+    <div class="how-t" id="howt">How it works</div>
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><p id="step1">Fill your business &amp; customer details</p></div>
-      <div class="step"><div class="step-num">2</div><p id="step2">Add items or services with rate</p></div>
-      <div class="step"><div class="step-num">3</div><p id="step3">Download PDF or share on WhatsApp</p></div>
+      <div class="step"><div class="snum">1</div><p id="s1">Fill your business &amp; customer details</p></div>
+      <div class="step"><div class="snum">2</div><p id="s2">Add items or services with rate</p></div>
+      <div class="step"><div class="snum">3</div><p id="s3">Download PDF or share on WhatsApp</p></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span id="sec-biz">Your business</span>
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span id="sbiz">Your business</span></div>
+    <div class="g2">
+      <div class="f"><label id="lbn">Business name</label><input id="biz-name" placeholder="Sharma Coaching Classes"/></div>
+      <div class="f"><label id="lon">Owner name</label><input id="biz-owner" placeholder="Ramesh Sharma"/></div>
     </div>
-    <div class="grid-2">
-      <div class="field"><label id="lbl-biz-name">Business name</label><input id="biz-name" placeholder="Sharma Coaching Classes" /></div>
-      <div class="field"><label id="lbl-biz-owner">Owner name</label><input id="biz-owner" placeholder="Ramesh Sharma" /></div>
+    <div class="g2">
+      <div class="f"><label id="lph">Phone</label><input id="biz-phone" placeholder="+91 98765 43210"/></div>
+      <div class="f"><label id="lem">Email (optional)</label><input id="biz-email" type="email" placeholder="ramesh@gmail.com"/></div>
     </div>
-    <div class="grid-2">
-      <div class="field"><label id="lbl-biz-phone">Phone</label><input id="biz-phone" placeholder="+91 98765 43210" /></div>
-      <div class="field"><label id="lbl-biz-email">Email (optional)</label><input id="biz-email" type="email" placeholder="ramesh@gmail.com" /></div>
-    </div>
-    <div class="field"><label id="lbl-biz-addr">Address (optional)</label><textarea id="biz-address" placeholder="Shop No. 5, MG Road, Pune - 411001"></textarea></div>
+    <div class="f"><label id="lad">Address (optional)</label><textarea id="biz-addr" placeholder="Shop No. 5, MG Road, Pune - 411001"></textarea></div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span id="sec-cust">Bill to (customer)</span>
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span id="scust">Bill to (customer)</span></div>
+    <div class="g2">
+      <div class="f"><label id="lcn">Customer name</label><input id="cust-name" placeholder="Priya Mehta"/></div>
+      <div class="f"><label id="lcp">Phone</label><input id="cust-phone" placeholder="+91 91234 56789"/></div>
     </div>
-    <div class="grid-2">
-      <div class="field"><label id="lbl-cust-name">Customer name</label><input id="cust-name" placeholder="Priya Mehta" /></div>
-      <div class="field"><label id="lbl-cust-phone">Phone</label><input id="cust-phone" placeholder="+91 91234 56789" /></div>
-    </div>
-    <div class="field"><label id="lbl-cust-addr">Address (optional)</label><textarea id="cust-address" placeholder="Flat 12B, Shivaji Nagar, Pune"></textarea></div>
+    <div class="f"><label id="lca">Address (optional)</label><textarea id="cust-addr" placeholder="Flat 12B, Shivaji Nagar, Pune"></textarea></div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg>
-      <span id="sec-inv">Invoice details</span>
-    </div>
-    <div class="grid-3">
-      <div class="field"><label id="lbl-inv-no">Invoice no.</label><input id="inv-no" placeholder="INV-001" /></div>
-      <div class="field"><label id="lbl-inv-date">Date</label><input id="inv-date" type="date" /></div>
-      <div class="field"><label id="lbl-currency">Currency</label>
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="12" y2="15"/></svg><span id="sinv">Invoice details</span></div>
+    <div class="g3">
+      <div class="f"><label id="lin">Invoice no.</label><input id="inv-no" placeholder="INV-001"/></div>
+      <div class="f"><label id="ldt">Date</label><input id="inv-date" type="date"/></div>
+      <div class="f"><label id="lcu">Currency</label>
         <select id="currency">
-          <option value="₹">₹ INR (India)</option>
-          <option value="$">$ USD</option>
-          <option value="€">€ EUR</option>
-          <option value="£">£ GBP</option>
+          <option value="Rs.">Rs. INR</option>
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GBP">£ GBP</option>
         </select>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-      <span id="sec-items">Items / services</span>
-    </div>
-    <div class="items-header">
-      <span id="col-desc">Description</span><span id="col-qty">Qty</span><span id="col-rate">Rate (₹)</span><span></span>
-    </div>
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg><span id="sitems">Items / services</span></div>
+    <div class="ih"><span id="cdesc">Description</span><span id="cqty">Qty</span><span id="crate">Rate</span><span></span></div>
     <div id="items-list"></div>
-    <button class="add-item-btn" onclick="addItem()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      <span id="btn-add-item">Add item</span>
+    <button class="add-btn" onclick="addItem()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span id="badd">Add item</span>
     </button>
-    <div class="divider"></div>
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
-      <div class="field" style="margin:0;min-width:140px">
-        <label id="lbl-gst">GST / Tax %</label>
-        <input id="gst" type="number" value="18" min="0" max="100" placeholder="18" />
-      </div>
-      <div id="totals-block" style="min-width:200px"></div>
+    <div class="div"></div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap">
+      <div class="f" style="margin:0;min-width:130px"><label id="lgst">GST / Tax %</label><input id="gst" type="number" value="18" min="0" max="100"/></div>
+      <div id="totals" style="min-width:190px"></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      <span id="sec-note">Note to customer (optional)</span>
-    </div>
-    <div class="field" style="margin:0">
-      <textarea id="inv-note" placeholder="Thank you for your business! Payment due within 7 days. UPI: yourname@upi" style="height:56px"></textarea>
-    </div>
+    <div class="ct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span id="snote">Note to customer (optional)</span></div>
+    <div class="f" style="margin:0"><textarea id="inv-note" placeholder="Thank you! Payment due in 7 days. UPI: yourname@upi" style="height:52px"></textarea></div>
   </div>
 
   <div class="actions">
-    <button class="btn btn-outline" onclick="previewInvoice()">
+    <button class="btn btn-o" onclick="previewInv()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-      <span id="btn-preview">Preview</span>
+      <span id="bprev">Preview</span>
     </button>
-    <button class="btn btn-primary" onclick="downloadPDF()">
+    <button class="btn btn-p" onclick="downloadPDF()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      <span id="btn-pdf">Download PDF</span>
+      <span id="bpdf">Download PDF</span>
     </button>
-    <button class="btn btn-whatsapp" onclick="shareWhatsApp()">
+    <button class="btn btn-w" onclick="shareWA()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      <span id="btn-wa">WhatsApp</span>
+      <span id="bwa">WhatsApp</span>
     </button>
   </div>
-
 </div>
 
 <footer>
   <p>FreeBillIndia — Free invoice generator for Indian small businesses</p>
-  <p style="margin-top:4px">No data is saved. Everything stays on your device.</p>
-  <p style="margin-top:10px;font-size:12px;color:#c4c8ce;max-width:480px;margin-left:auto;margin-right:auto">
+  <p style="margin-top:4px">No data saved. Everything stays on your device.</p>
+  <p style="margin-top:8px;font-size:11px;color:#c4c8ce;max-width:460px;margin-left:auto;margin-right:auto">
     Available in English, हिंदी (Hindi), मराठी (Marathi) and ગુજરાતી (Gujarati) — free bill aur invoice banane ka sabse aasaan tarika.
   </p>
 </footer>
 
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕ Close</button>
-    <div id="invoice-preview"></div>
-    <div style="display:flex;gap:10px;margin-top:1.5rem">
-      <button class="btn btn-primary" style="flex:1" onclick="downloadPDF()">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+<div class="modal" id="modal">
+  <div class="mbox">
+    <button class="mclose" onclick="closeModal()">✕ Close</button>
+    <div id="inv-preview"></div>
+    <div style="display:flex;gap:9px;margin-top:1.25rem">
+      <button class="btn btn-p" style="flex:1" onclick="downloadPDF()">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download PDF
       </button>
-      <button class="btn btn-whatsapp" style="flex:1" onclick="shareWhatsApp()">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      <button class="btn btn-w" style="flex:1" onclick="shareWA()">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         WhatsApp
       </button>
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
-// ─── TRANSLATIONS ───────────────────────────────────────────────
+// ── TRANSLATIONS ─────────────────────────────────────────────
 const T = {
-  en: {
-    heroTitle: 'Make a professional invoice', heroTitle2: 'in 2 minutes',
-    heroSub: 'No signup. No app. Works on mobile. Download PDF or share instantly on WhatsApp.',
-    howTitle: 'How it works',
-    step1: 'Fill your business & customer details',
-    step2: 'Add items or services with rate',
-    step3: 'Download PDF or share on WhatsApp',
-    secBiz: 'Your business', lblBizName: 'Business name', lblBizOwner: 'Owner name',
-    lblBizPhone: 'Phone', lblBizEmail: 'Email (optional)', lblBizAddr: 'Address (optional)',
-    secCust: 'Bill to (customer)', lblCustName: 'Customer name', lblCustPhone: 'Phone', lblCustAddr: 'Address (optional)',
-    secInv: 'Invoice details', lblInvNo: 'Invoice no.', lblInvDate: 'Date', lblCurrency: 'Currency',
-    secItems: 'Items / services', colDesc: 'Description', colQty: 'Qty', colRate: 'Rate (₹)',
-    btnAddItem: 'Add item', lblGst: 'GST / Tax %',
-    secNote: 'Note to customer (optional)',
-    btnPreview: 'Preview', btnPdf: 'Download PDF', btnWa: 'WhatsApp',
-    subtotal: 'Subtotal', total: 'Total',
-    phBizName: 'Sharma Coaching Classes', phBizOwner: 'Ramesh Sharma',
-    phBizPhone: '+91 98765 43210', phBizEmail: 'ramesh@gmail.com',
-    phBizAddr: 'Shop No. 5, MG Road, Pune - 411001',
-    phCustName: 'Priya Mehta', phCustPhone: '+91 91234 56789',
-    phCustAddr: 'Flat 12B, Shivaji Nagar, Pune',
-    phNote: 'Thank you for your business! Payment due within 7 days. UPI: yourname@upi',
-    phDesc: 'e.g. Maths tuition – June 2025',
-    toastPrep: 'Preparing PDF...', toastDone: 'PDF downloaded!'
-  },
-  hi: {
-    heroTitle: 'प्रोफेशनल इनवॉइस बनाएं', heroTitle2: '2 मिनट में',
-    heroSub: 'कोई साइनअप नहीं। कोई ऐप नहीं। मोबाइल पर चलता है। PDF डाउनलोड करें या WhatsApp पर शेयर करें।',
-    howTitle: 'कैसे काम करता है',
-    step1: 'अपना बिज़नेस और कस्टमर डिटेल भरें',
-    step2: 'आइटम या सर्विस और रेट जोड़ें',
-    step3: 'PDF डाउनलोड करें या WhatsApp पर भेजें',
-    secBiz: 'आपका बिज़नेस', lblBizName: 'बिज़नेस का नाम', lblBizOwner: 'ओनर का नाम',
-    lblBizPhone: 'फोन', lblBizEmail: 'ईमेल (ऑप्शनल)', lblBizAddr: 'एड्रेस (ऑप्शनल)',
-    secCust: 'कस्टमर को बिल', lblCustName: 'कस्टमर का नाम', lblCustPhone: 'फोन', lblCustAddr: 'एड्रेस (ऑप्शनल)',
-    secInv: 'इनवॉइस डिटेल', lblInvNo: 'इनवॉइस नंबर', lblInvDate: 'डेट', lblCurrency: 'करेंसी',
-    secItems: 'आइटम / सर्विस', colDesc: 'डिस्क्रिप्शन', colQty: 'क्वांटिटी', colRate: 'रेट (₹)',
-    btnAddItem: 'आइटम जोड़ें', lblGst: 'GST / टैक्स %',
-    secNote: 'कस्टमर को नोट (ऑप्शनल)',
-    btnPreview: 'प्रीव्यू', btnPdf: 'PDF डाउनलोड', btnWa: 'WhatsApp',
-    subtotal: 'सबटोटल', total: 'टोटल अमाउंट',
-    phBizName: 'शर्मा कोचिंग क्लासेस', phBizOwner: 'रमेश शर्मा',
-    phBizPhone: '+91 98765 43210', phBizEmail: 'ramesh@gmail.com',
-    phBizAddr: 'शॉप नं. 5, एमजी रोड, पुणे - 411001',
-    phCustName: 'प्रिया मेहता', phCustPhone: '+91 91234 56789',
-    phCustAddr: 'फ्लैट 12B, शिवाजी नगर, पुणे',
-    phNote: 'थैंक यू! 7 दिनों में पेमेंट करें। UPI: yourname@upi',
-    phDesc: 'जैसे: मैथ्स ट्यूशन – जून 2025',
-    toastPrep: 'PDF रेडी हो रही है...', toastDone: 'PDF डाउनलोड हो गई!'
-  },
-  mr: {
-    heroTitle: 'प्रोफेशनल इनव्हॉइस बनवा', heroTitle2: '2 मिनिटांत',
-    heroSub: 'साइनअप नाही. अ‍ॅप नाही. मोबाइलवर चालते. PDF डाउनलोड करा किंवा WhatsApp वर शेअर करा.',
-    howTitle: 'कसे काम करते',
-    step1: 'तुमचे बिज़नेस आणि कस्टमर डिटेल भरा',
-    step2: 'आयटम किंवा सर्व्हिस आणि रेट जोडा',
-    step3: 'PDF डाउनलोड करा किंवा WhatsApp वर पाठवा',
-    secBiz: 'तुमचा बिज़नेस', lblBizName: 'बिज़नेसचे नाव', lblBizOwner: 'ओनरचे नाव',
-    lblBizPhone: 'फोन', lblBizEmail: 'ईमेल (ऑप्शनल)', lblBizAddr: 'अ‍ॅड्रेस (ऑप्शनल)',
-    secCust: 'कस्टमरला बिल', lblCustName: 'कस्टमरचे नाव', lblCustPhone: 'फोन', lblCustAddr: 'अ‍ॅड्रेस (ऑप्शनल)',
-    secInv: 'इनव्हॉइस डिटेल', lblInvNo: 'इनव्हॉइस नंबर', lblInvDate: 'डेट', lblCurrency: 'करन्सी',
-    secItems: 'आयटम / सर्व्हिस', colDesc: 'डिस्क्रिप्शन', colQty: 'क्वांटिटी', colRate: 'रेट (₹)',
-    btnAddItem: 'आयटम जोडा', lblGst: 'GST / टॅक्स %',
-    secNote: 'कस्टमरला नोट (ऑप्शनल)',
-    btnPreview: 'प्रीव्ह्यू', btnPdf: 'PDF डाउनलोड', btnWa: 'WhatsApp',
-    subtotal: 'सबटोटल', total: 'टोटल AMOUNT',
-    phBizName: 'शर्मा कोचिंग क्लासेस', phBizOwner: 'रमेश शर्मा',
-    phBizPhone: '+91 98765 43210', phBizEmail: 'ramesh@gmail.com',
-    phBizAddr: 'शॉप नं. 5, एमजी रोड, पुणे - 411001',
-    phCustName: 'प्रिया मेहता', phCustPhone: '+91 91234 56789',
-    phCustAddr: 'फ्लॅट 12B, शिवाजी नगर, पुणे',
-    phNote: 'थँक यू! 7 दिवसांत पेमेंट करा. UPI: yourname@upi',
-    phDesc: 'उदा: मॅथ्स ट्यूशन – जून 2025',
-    toastPrep: 'PDF रेडी होत आहे...', toastDone: 'PDF डाउनलोड झाली!'
-  },
-  gu: {
-    heroTitle: 'પ્રોફેશનલ ઇન્વૉઇસ બનાવો', heroTitle2: '2 મિનિટમાં',
-    heroSub: 'સાઇનઅપ નહીં. એપ નહીં. મોબાઇલ પર ચાલે. PDF ડાઉનલોડ કરો અથવા WhatsApp પર શેર કરો.',
-    howTitle: 'કેવી રીતે કામ કરે છે',
-    step1: 'તમારો બિઝનેસ અને કસ્ટમર ડિટેઇલ ભરો',
-    step2: 'આઇટમ અથવા સર્વિસ અને રેટ ઉમેરો',
-    step3: 'PDF ડાઉનલોડ કરો અથવા WhatsApp પર મોકલો',
-    secBiz: 'તમારો બિઝનેસ', lblBizName: 'બિઝનેસનું નામ', lblBizOwner: 'ઓનરનું નામ',
-    lblBizPhone: 'ફોન', lblBizEmail: 'ઈમેઇલ (ઓપ્શનલ)', lblBizAddr: 'એડ્રેસ (ઓપ્શનલ)',
-    secCust: 'કસ્ટમરને બિલ', lblCustName: 'કસ્ટમરનું નામ', lblCustPhone: 'ફોન', lblCustAddr: 'એડ્રેસ (ઓપ્શનલ)',
-    secInv: 'ઇન્વૉઇસ ડિટેઇલ', lblInvNo: 'ઇન્વૉઇસ નંબર', lblInvDate: 'ડેટ', lblCurrency: 'કરન્સી',
-    secItems: 'આઇટમ / સર્વિસ', colDesc: 'ડિસ્ક્રિપ્શન', colQty: 'ક્વૉન્ટિટી', colRate: 'રેટ (₹)',
-    btnAddItem: 'આઇટમ ઉમેરો', lblGst: 'GST / ટૅક્સ %',
-    secNote: 'કસ્ટમરને નોટ (ઓપ્શનલ)',
-    btnPreview: 'પ્રીવ્યૂ', btnPdf: 'PDF ડાઉનલોડ', btnWa: 'WhatsApp',
-    subtotal: 'સબટોટલ', total: 'ટોટલ અમાઉન્ટ',
-    phBizName: 'શર્મા કોચિંગ ક્લાસ', phBizOwner: 'રમેશ શર્મા',
-    phBizPhone: '+91 98765 43210', phBizEmail: 'ramesh@gmail.com',
-    phBizAddr: 'શૉપ નં. 5, એમજી રોડ, પુણે - 411001',
-    phCustName: 'પ્રિયા મહેતા', phCustPhone: '+91 91234 56789',
-    phCustAddr: 'ફ્લૅટ 12B, શિવાજી નગર, પુણે',
-    phNote: 'થૅન્ક યૂ! 7 દિવસમાં પેમેન્ટ કરો. UPI: yourname@upi',
-    phDesc: 'દા.ત.: મૅથ્સ ટ્યૂશન – જૂન 2025',
-    toastPrep: 'PDF રેડી થઈ રહી છે...', toastDone: 'PDF ડાઉનલોડ થઈ!'
-  }
+  en:{h1:'Make a professional invoice',h1b:'in 2 minutes',hsub:'No signup. No app. Works on mobile. Download PDF or share on WhatsApp.',howt:'How it works',s1:'Fill your business & customer details',s2:'Add items or services with rate',s3:'Download PDF or share on WhatsApp',sbiz:'Your business',lbn:'Business name',lon:'Owner name',lph:'Phone',lem:'Email (optional)',lad:'Address (optional)',scust:'Bill to (customer)',lcn:'Customer name',lcp:'Phone',lca:'Address (optional)',sinv:'Invoice details',lin:'Invoice no.',ldt:'Date',lcu:'Currency',sitems:'Items / services',cdesc:'Description',cqty:'Qty',crate:'Rate',badd:'Add item',lgst:'GST / Tax %',snote:'Note to customer (optional)',bprev:'Preview',bpdf:'Download PDF',bwa:'WhatsApp',sub:'Subtotal',tot:'Total',pbn:'Sharma Coaching Classes',pon:'Ramesh Sharma',pph:'+91 98765 43210',pem:'ramesh@gmail.com',pad:'Shop No. 5, MG Road, Pune - 411001',pcn:'Priya Mehta',pcp:'+91 91234 56789',pca:'Flat 12B, Shivaji Nagar, Pune',pnote:'Thank you! Payment due in 7 days. UPI: yourname@upi',pdesc:'e.g. Maths tuition - June 2025',tprep:'Preparing PDF...',tdone:'PDF Downloaded!'},
+  hi:{h1:'प्रोफेशनल इनवॉइस बनाएं',h1b:'2 मिनट में',hsub:'कोई साइनअप नहीं। कोई ऐप नहीं। मोबाइल पर चलता है। PDF डाउनलोड करें या WhatsApp पर शेयर करें।',howt:'कैसे काम करता है',s1:'अपना बिज़नेस और कस्टमर डिटेल भरें',s2:'आइटम या सर्विस और रेट जोड़ें',s3:'PDF डाउनलोड करें या WhatsApp पर भेजें',sbiz:'आपका बिज़नेस',lbn:'बिज़नेस का नाम',lon:'ओनर का नाम',lph:'फोन',lem:'ईमेल (ऑप्शनल)',lad:'एड्रेस (ऑप्शनल)',scust:'कस्टमर को बिल',lcn:'कस्टमर का नाम',lcp:'फोन',lca:'एड्रेस (ऑप्शनल)',sinv:'इनवॉइस डिटेल',lin:'इनवॉइस नंबर',ldt:'डेट',lcu:'करेंसी',sitems:'आइटम / सर्विस',cdesc:'डिस्क्रिप्शन',cqty:'क्वांटिटी',crate:'रेट',badd:'आइटम जोड़ें',lgst:'GST / टैक्स %',snote:'कस्टमर को नोट (ऑप्शनल)',bprev:'प्रीव्यू',bpdf:'PDF डाउनलोड',bwa:'WhatsApp',sub:'सबटोटल',tot:'टोटल अमाउंट',pbn:'शर्मा कोचिंग क्लासेस',pon:'रमेश शर्मा',pph:'+91 98765 43210',pem:'ramesh@gmail.com',pad:'शॉप नं. 5, एमजी रोड, पुणे',pcn:'प्रिया मेहता',pcp:'+91 91234 56789',pca:'फ्लैट 12B, शिवाजी नगर, पुणे',pnote:'थैंक यू! 7 दिनों में पेमेंट करें। UPI: yourname@upi',pdesc:'जैसे: मैथ्स ट्यूशन - जून 2025',tprep:'PDF रेडी हो रही है...',tdone:'PDF डाउनलोड हो गई!'},
+  mr:{h1:'प्रोफेशनल इनव्हॉइस बनवा',h1b:'2 मिनिटांत',hsub:'साइनअप नाही. अ‍ॅप नाही. मोबाइलवर चालते. PDF डाउनलोड करा किंवा WhatsApp वर शेअर करा.',howt:'कसे काम करते',s1:'तुमचे बिज़नेस आणि कस्टमर डिटेल भरा',s2:'आयटम किंवा सर्व्हिस आणि रेट जोडा',s3:'PDF डाउनलोड करा किंवा WhatsApp वर पाठवा',sbiz:'तुमचा बिज़नेस',lbn:'बिज़नेसचे नाव',lon:'ओनरचे नाव',lph:'फोन',lem:'ईमेल (ऑप्शनल)',lad:'अ‍ॅड्रेस (ऑप्शनल)',scust:'कस्टमरला बिल',lcn:'कस्टमरचे नाव',lcp:'फोन',lca:'अ‍ॅड्रेस (ऑप्शनल)',sinv:'इनव्हॉइस डिटेल',lin:'इनव्हॉइस नंबर',ldt:'डेट',lcu:'करन्सी',sitems:'आयटम / सर्व्हिस',cdesc:'डिस्क्रिप्शन',cqty:'क्वांटिटी',crate:'रेट',badd:'आयटम जोडा',lgst:'GST / टॅक्स %',snote:'कस्टमरला नोट (ऑप्शनल)',bprev:'प्रीव्ह्यू',bpdf:'PDF डाउनलोड',bwa:'WhatsApp',sub:'सबटोटल',tot:'टोटल अमाउंट',pbn:'शर्मा कोचिंग क्लासेस',pon:'रमेश शर्मा',pph:'+91 98765 43210',pem:'ramesh@gmail.com',pad:'शॉप नं. 5, एमजी रोड, पुणे',pcn:'प्रिया मेहता',pcp:'+91 91234 56789',pca:'फ्लॅट 12B, शिवाजी नगर, पुणे',pnote:'थँक यू! 7 दिवसांत पेमेंट करा. UPI: yourname@upi',pdesc:'उदा: मॅथ्स ट्यूशन - जून 2025',tprep:'PDF रेडी होत आहे...',tdone:'PDF डाउनलोड झाली!'},
+  gu:{h1:'પ્રોફેશનલ ઇન્વૉઇસ બનાવો',h1b:'2 મિનિટમાં',hsub:'સાઇનઅપ નહીં. એપ નહીં. મોબાઇલ પર ચાલે. PDF ડાઉનલોડ કરો અથવા WhatsApp પર શેર કરો.',howt:'કેવી રીતે કામ કરે છે',s1:'તમારો બિઝનેસ અને કસ્ટમર ડિટેઇલ ભરો',s2:'આઇટમ અથવા સર્વિસ અને રેટ ઉમેરો',s3:'PDF ડાઉનલોડ કરો અથવા WhatsApp પર મોકલો',sbiz:'તમારો બિઝનેસ',lbn:'બિઝનેસનું નામ',lon:'ઓનરનું નામ',lph:'ફોન',lem:'ઈમેઇલ (ઓપ્શનલ)',lad:'એડ્રેસ (ઓપ્શનલ)',scust:'કસ્ટમરને બિલ',lcn:'કસ્ટમરનું નામ',lcp:'ફોન',lca:'એડ્રેસ (ઓપ્શનલ)',sinv:'ઇન્વૉઇસ ડિટેઇલ',lin:'ઇન્વૉઇસ નંબર',ldt:'ડેટ',lcu:'કરન્સી',sitems:'આઇટમ / સર્વિસ',cdesc:'ડિસ્ક્રિપ્શન',cqty:'ક્વૉન્ટિટી',crate:'રેટ',badd:'આઇટમ ઉમેરો',lgst:'GST / ટૅક્સ %',snote:'કસ્ટમરને નોટ (ઓપ્શનલ)',bprev:'પ્રીવ્યૂ',bpdf:'PDF ડાઉનલોડ',bwa:'WhatsApp',sub:'સબટોટલ',tot:'ટોટલ અમાઉન્ટ',pbn:'શર્મા કોચિંગ ક્લાસ',pon:'રમેશ શર્મા',pph:'+91 98765 43210',pem:'ramesh@gmail.com',pad:'શૉપ નં. 5, એમજી રોડ, પુણે',pcn:'પ્રિયા મહેતા',pcp:'+91 91234 56789',pca:'ફ્લૅટ 12B, શિવાજી નગર, પુણે',pnote:'થૅન્ક યૂ! 7 દિવસમાં પેમેન્ટ કરો. UPI: yourname@upi',pdesc:'દા.ત.: મૅથ્સ ટ્યૂશન - જૂન 2025',tprep:'PDF રેડી થઈ રહી છે...',tdone:'PDF ડાઉનલોડ થઈ!'}
 };
 
-let currentLang = 'en';
+let lang='en';
+const t=k=>T[lang][k]||T.en[k];
 
-function setLang(lang) {
-  currentLang = lang;
-  const t = T[lang];
-  // update buttons
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  // update all text
-  document.getElementById('hero-title').childNodes[0].textContent = t.heroTitle + ' ';
-  document.getElementById('hero-title-2').textContent = t.heroTitle2;
-  document.getElementById('hero-sub').textContent = t.heroSub;
-  document.getElementById('how-title').textContent = t.howTitle;
-  document.getElementById('step1').textContent = t.step1;
-  document.getElementById('step2').textContent = t.step2;
-  document.getElementById('step3').textContent = t.step3;
-  document.getElementById('sec-biz').textContent = t.secBiz;
-  document.getElementById('lbl-biz-name').textContent = t.lblBizName;
-  document.getElementById('lbl-biz-owner').textContent = t.lblBizOwner;
-  document.getElementById('lbl-biz-phone').textContent = t.lblBizPhone;
-  document.getElementById('lbl-biz-email').textContent = t.lblBizEmail;
-  document.getElementById('lbl-biz-addr').textContent = t.lblBizAddr;
-  document.getElementById('biz-name').placeholder = t.phBizName;
-  document.getElementById('biz-owner').placeholder = t.phBizOwner;
-  document.getElementById('biz-phone').placeholder = t.phBizPhone;
-  document.getElementById('biz-email').placeholder = t.phBizEmail;
-  document.getElementById('biz-address').placeholder = t.phBizAddr;
-  document.getElementById('sec-cust').textContent = t.secCust;
-  document.getElementById('lbl-cust-name').textContent = t.lblCustName;
-  document.getElementById('lbl-cust-phone').textContent = t.lblCustPhone;
-  document.getElementById('lbl-cust-addr').textContent = t.lblCustAddr;
-  document.getElementById('cust-name').placeholder = t.phCustName;
-  document.getElementById('cust-phone').placeholder = t.phCustPhone;
-  document.getElementById('cust-address').placeholder = t.phCustAddr;
-  document.getElementById('sec-inv').textContent = t.secInv;
-  document.getElementById('lbl-inv-no').textContent = t.lblInvNo;
-  document.getElementById('lbl-inv-date').textContent = t.lblInvDate;
-  document.getElementById('lbl-currency').textContent = t.lblCurrency;
-  document.getElementById('sec-items').textContent = t.secItems;
-  document.getElementById('col-desc').textContent = t.colDesc;
-  document.getElementById('col-qty').textContent = t.colQty;
-  document.getElementById('col-rate').textContent = t.colRate;
-  document.getElementById('btn-add-item').textContent = t.btnAddItem;
-  document.getElementById('lbl-gst').textContent = t.lblGst;
-  document.getElementById('sec-note').textContent = t.secNote;
-  document.getElementById('inv-note').placeholder = t.phNote;
-  document.getElementById('btn-preview').textContent = t.btnPreview;
-  document.getElementById('btn-pdf').textContent = t.btnPdf;
-  document.getElementById('btn-wa').textContent = t.btnWa;
-  calcTotals();
-  renderItems();
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lb[onclick="setLang('${l}')"]`).classList.add('active');
+  const ids=['h1b','hsub','howt','s1','s2','s3','sbiz','lbn','lon','lph','lem','lad','scust','lcn','lcp','lca','sinv','lin','ldt','lcu','sitems','cdesc','cqty','crate','badd','lgst','snote','bprev','bpdf','bwa'];
+  ids.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t(id)});
+  document.getElementById('h1').childNodes[0].textContent=t('h1')+' ';
+  const phs={
+    'biz-name':t('pbn'),'biz-owner':t('pon'),'biz-phone':t('pph'),'biz-email':t('pem'),'biz-addr':t('pad'),
+    'cust-name':t('pcn'),'cust-phone':t('pcp'),'cust-addr':t('pca'),'inv-note':t('pnote')
+  };
+  Object.entries(phs).forEach(([id,ph])=>{const el=document.getElementById(id);if(el)el.placeholder=ph});
+  calcTotals();renderItems();
 }
 
-// ─── APP LOGIC ───────────────────────────────────────────────────
-let items = [{ desc: '', qty: 1, rate: '' }];
+// ── ITEMS ────────────────────────────────────────────────────
+let items=[{desc:'',qty:1,rate:''}];
 
-const today = new Date();
-document.getElementById('inv-date').value = today.toISOString().split('T')[0];
-document.getElementById('inv-no').value = 'INV-' + String(Math.floor(Math.random() * 900) + 100);
-
-function t(key) { return T[currentLang][key] || T.en[key]; }
-
-function renderItems() {
-  const list = document.getElementById('items-list');
-  list.innerHTML = '';
-  items.forEach((item, i) => {
-    const row = document.createElement('div');
-    row.className = 'item-row';
-    row.innerHTML = `
-      <input placeholder="${t('phDesc')}" value="${item.desc.replace(/"/g,'&quot;')}" oninput="items[${i}].desc=this.value;calcTotals()" />
-      <input type="number" placeholder="1" value="${item.qty}" min="1" oninput="items[${i}].qty=+this.value||1;calcTotals()" style="text-align:center" />
-      <input type="number" placeholder="0.00" value="${item.rate}" min="0" step="0.01" oninput="items[${i}].rate=+this.value||0;calcTotals()" />
-      <button class="del-btn" onclick="removeItem(${i})" aria-label="Remove">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+function renderItems(){
+  const list=document.getElementById('items-list');
+  list.innerHTML='';
+  items.forEach((item,i)=>{
+    const row=document.createElement('div');
+    row.className='ir';
+    row.innerHTML=`
+      <input placeholder="${t('pdesc')}" value="${item.desc.replace(/"/g,'&quot;')}" oninput="items[${i}].desc=this.value"/>
+      <input type="number" placeholder="1" value="${item.qty}" min="1" oninput="items[${i}].qty=+this.value||1;calcTotals()" style="text-align:center"/>
+      <input type="number" placeholder="0" value="${item.rate}" min="0" oninput="items[${i}].rate=+this.value||0;calcTotals()"/>
+      <button class="del" onclick="removeItem(${i})" aria-label="Remove">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
       </button>`;
     list.appendChild(row);
   });
   calcTotals();
 }
+function addItem(){items.push({desc:'',qty:1,rate:''});renderItems();setTimeout(()=>{const r=document.querySelectorAll('.ir input');if(r.length)r[r.length-3].focus()},50)}
+function removeItem(i){if(items.length>1){items.splice(i,1);renderItems()}}
+function getCur(){return document.getElementById('currency').value}
 
-function downloadPDF() {
-  showToast(t('toastPrep'));
-  const invNo = document.getElementById('inv-no').value || 'INV-001';
-  const custName = document.getElementById('cust-name').value || 'customer';
-
-  // 1. Create a temporary visible holder container so the browser rendering engine can see it
-  const holder = document.createElement('div');
-  holder.style.cssText = 'position: fixed; top: 0; left: 0; width: 680px; padding: 32px; background: #ffffff; min-height: 842px; z-index: -9999; opacity: 0; pointer-events: none;';
-  holder.innerHTML = buildInvoiceHTML();
-  document.body.appendChild(holder);
-
-  // 2. Target configuration for perfect rendering
-  const opt = {
-    margin: [10, 10, 10, 10],
-    filename: `${invNo}-${custName}.pdf`,
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2, 
-      useCORS: true, 
-      logging: false,
-      letterRendering: true
-    },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-  };
-
-  // 3. Run generator and cleanly remove the temporary container afterwards
-  html2pdf().set(opt).from(holder).save().then(() => {
-    document.body.removeChild(holder);
-    showToast(t('toastDone'));
-  }).catch((err) => {
-    document.body.removeChild(holder);
-    showToast('Error — please try again');
-    console.error('PDF error:', err);
-  });
+function calcTotals(){
+  const cur=getCur(),gst=parseFloat(document.getElementById('gst').value)||0;
+  const sub=items.reduce((s,it)=>s+(+it.qty||0)*(+it.rate||0),0);
+  const tax=sub*gst/100,grand=sub+tax;
+  document.getElementById('totals').innerHTML=`
+    <div class="tr"><span>${t('sub')}</span><span>${cur} ${sub.toFixed(2)}</span></div>
+    ${gst>0?`<div class="tr"><span>GST (${gst}%)</span><span>${cur} ${tax.toFixed(2)}</span></div>`:''}
+    <div class="tr grand"><span>${t('tot')}</span><span>${cur} ${grand.toFixed(2)}</span></div>`;
 }
-  
-function addItem() {
-  items.push({ desc: '', qty: 1, rate: '' });
-  renderItems();
-  setTimeout(() => {
-    const rows = document.querySelectorAll('.item-row input');
-    if (rows.length) rows[rows.length - 3].focus();
-  }, 50);
-}
+document.getElementById('gst').addEventListener('input',calcTotals);
+document.getElementById('currency').addEventListener('change',calcTotals);
 
-function removeItem(i) {
-  if (items.length > 1) { items.splice(i, 1); renderItems(); }
-}
-
-function getCurrency() { return document.getElementById('currency').value; }
-
-function calcTotals() {
-  const cur = getCurrency();
-  const gst = parseFloat(document.getElementById('gst').value) || 0;
-  const subtotal = items.reduce((s, it) => s + (+it.qty || 0) * (+it.rate || 0), 0);
-  const tax = subtotal * gst / 100;
-  const grand = subtotal + tax;
-  document.getElementById('totals-block').innerHTML = `
-    <div class="totals-row"><span>${t('subtotal')}</span><span>${cur}${subtotal.toFixed(2)}</span></div>
-    ${gst > 0 ? `<div class="totals-row"><span>GST (${gst}%)</span><span>${cur}${tax.toFixed(2)}</span></div>` : ''}
-    <div class="totals-row grand"><span>${t('total')}</span><span>${cur}${grand.toFixed(2)}</span></div>`;
-}
-
-document.getElementById('gst').addEventListener('input', calcTotals);
-document.getElementById('currency').addEventListener('change', calcTotals);
-
-// ─── INVOICE BUILDER (always English) ───────────────────────────
-function buildInvoiceHTML() {
-  const cur = getCurrency();
-  const gst = parseFloat(document.getElementById('gst').value) || 0;
-  const subtotal = items.reduce((s, it) => s + (+it.qty || 0) * (+it.rate || 0), 0);
-  const tax = subtotal * gst / 100;
-  const grand = subtotal + tax;
-  const get = id => document.getElementById(id).value.trim();
-  const bizName = get('biz-name') || 'Your Business';
-  const bizOwner = get('biz-owner');
-  const bizPhone = get('biz-phone');
-  const bizEmail = get('biz-email');
-  const bizAddr = get('biz-address');
-  const custName = get('cust-name') || 'Customer';
-  const custPhone = get('cust-phone');
-  const custAddr = get('cust-address');
-  const invNo = get('inv-no') || 'INV-001';
-  const invDate = get('inv-date');
-  const note = get('inv-note');
-  const rows = items.filter(it => it.desc || it.rate).map(it => `<tr>
-    <td>${it.desc || '—'}</td>
-    <td style="text-align:center">${it.qty}</td>
-    <td style="text-align:right">${cur}${(+it.rate||0).toFixed(2)}</td>
-    <td style="text-align:right">${cur}${((+it.qty||0)*(+it.rate||0)).toFixed(2)}</td>
-  </tr>`).join('');
+// ── INVOICE HTML (preview) ───────────────────────────────────
+function buildInv(){
+  const cur=getCur(),gst=parseFloat(document.getElementById('gst').value)||0;
+  const sub=items.reduce((s,it)=>s+(+it.qty||0)*(+it.rate||0),0);
+  const tax=sub*gst/100,grand=sub+tax;
+  const g=id=>document.getElementById(id).value.trim();
+  const bn=g('biz-name')||'Your Business',bo=g('biz-owner'),bp=g('biz-phone'),be=g('biz-email'),ba=g('biz-addr');
+  const cn=g('cust-name')||'Customer',cp=g('cust-phone'),ca=g('cust-addr');
+  const ino=g('inv-no')||'INV-001',idt=g('inv-date'),note=g('inv-note');
+  const rows=items.filter(it=>it.desc||it.rate).map(it=>`<tr><td>${it.desc||'—'}</td><td style="text-align:center">${it.qty}</td><td style="text-align:right">${cur} ${(+it.rate||0).toFixed(2)}</td><td style="text-align:right">${cur} ${((+it.qty||0)*(+it.rate||0)).toFixed(2)}</td></tr>`).join('');
   return `<div class="inv">
     <div class="inv-top">
-      <div>
-        <div class="inv-biz-name">${bizName}</div>
-        ${bizOwner?`<div class="inv-small" style="color:#374151;font-weight:500">${bizOwner}</div>`:''}
-        ${bizPhone?`<div class="inv-small">${bizPhone}</div>`:''}
-        ${bizEmail?`<div class="inv-small">${bizEmail}</div>`:''}
-        ${bizAddr?`<div class="inv-small" style="margin-top:4px">${bizAddr}</div>`:''}
-      </div>
-      <div class="inv-meta">
-        <div class="inv-label-big">INVOICE</div>
-        <div class="inv-small">${invNo}</div>
-        <div class="inv-small">Date: ${invDate}</div>
-        <div class="inv-badge">Unpaid</div>
-      </div>
+      <div><div class="inv-bn">${bn}</div>${bo?`<div class="inv-sm" style="color:#374151;font-weight:500">${bo}</div>`:''} ${bp?`<div class="inv-sm">${bp}</div>`:''} ${be?`<div class="inv-sm">${be}</div>`:''} ${ba?`<div class="inv-sm" style="margin-top:3px">${ba}</div>`:''}</div>
+      <div style="text-align:right"><div class="inv-lbl">INVOICE</div><div class="inv-sm">${ino}</div><div class="inv-sm">Date: ${idt}</div><div class="inv-badge">Unpaid</div></div>
     </div>
-    <div class="inv-bill-box">
-      <div class="inv-section-label">Bill to</div>
-      <div class="inv-cust-name">${custName}</div>
-      ${custPhone?`<div class="inv-small" style="color:#374151">${custPhone}</div>`:''}
-      ${custAddr?`<div class="inv-small">${custAddr}</div>`:''}
-    </div>
-    <table class="inv-table">
-      <thead><tr>
-        <th>Description</th><th style="text-align:center">Qty</th>
-        <th style="text-align:right">Rate</th><th style="text-align:right">Amount</th>
-      </tr></thead>
-      <tbody>${rows||'<tr><td colspan="4" style="color:#9ca3af;text-align:center;padding:16px">No items added</td></tr>'}</tbody>
-    </table>
-    <div class="inv-totals">
-      <div class="inv-trow"><span>Subtotal</span><span>${cur}${subtotal.toFixed(2)}</span></div>
-      ${gst>0?`<div class="inv-trow"><span>GST (${gst}%)</span><span>${cur}${tax.toFixed(2)}</span></div>`:''}
-      <div class="inv-trow grand"><span>Total</span><span>${cur}${grand.toFixed(2)}</span></div>
+    <div class="inv-bb"><div class="inv-sl">Bill to</div><div class="inv-cn">${cn}</div>${cp?`<div class="inv-sm" style="color:#374151">${cp}</div>`:''} ${ca?`<div class="inv-sm">${ca}</div>`:''}</div>
+    <table class="inv-tbl"><thead><tr><th>Description</th><th style="text-align:center">Qty</th><th style="text-align:right">Rate</th><th style="text-align:right">Amount</th></tr></thead>
+    <tbody>${rows||'<tr><td colspan="4" style="color:#9ca3af;text-align:center;padding:14px">No items added</td></tr>'}</tbody></table>
+    <div class="inv-tots">
+      <div class="inv-tr"><span>Subtotal</span><span>${cur} ${sub.toFixed(2)}</span></div>
+      ${gst>0?`<div class="inv-tr"><span>GST (${gst}%)</span><span>${cur} ${tax.toFixed(2)}</span></div>`:''}
+      <div class="inv-tr grd"><span>Total</span><span>${cur} ${grand.toFixed(2)}</span></div>
     </div>
     ${note?`<div class="inv-note">${note}</div>`:''}
-    <div class="inv-footer-line">Generated with FreeBillIndia — freebillindia.vercel.app</div>
+    <div class="inv-ft">Generated with FreeBillIndia — freebillindia.vercel.app</div>
   </div>`;
 }
 
-function previewInvoice() {
-  document.getElementById('invoice-preview').innerHTML = buildInvoiceHTML();
+function previewInv(){
+  document.getElementById('inv-preview').innerHTML=buildInv();
   document.getElementById('modal').classList.add('open');
 }
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
 
-function closeModal() { document.getElementById('modal').classList.remove('open'); }
+// ── PDF DOWNLOAD using jsPDF text drawing ────────────────────
+// NOTE: We use "Rs." as currency label (not ₹) because jsPDF's
+// built-in fonts don't support the ₹ Unicode character.
+// Users see Rs. 500.00 which is universally understood in India.
+function downloadPDF(){
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  const cur=getCur();
+  const gst=parseFloat(document.getElementById('gst').value)||0;
+  const sub=items.reduce((s,it)=>s+(+it.qty||0)*(+it.rate||0),0);
+  const tax=sub*gst/100,grand=sub+tax;
+  const g=id=>document.getElementById(id).value.trim();
+  const bn=g('biz-name')||'Your Business',bo=g('biz-owner'),bp=g('biz-phone'),be=g('biz-email'),ba=g('biz-addr');
+  const cn=g('cust-name')||'Customer',cp=g('cust-phone'),ca=g('cust-addr');
+  const ino=g('inv-no')||'INV-001',idt=g('inv-date'),note=g('inv-note');
 
-function downloadPDF() {
-  showToast(t('toastPrep'));
-  const invNo = document.getElementById('inv-no').value || 'INV-001';
-  const custName = document.getElementById('cust-name').value || 'customer';
+  const W=210,L=15,R=195;
+  let y=18;
 
-  const wrapper = document.createElement('div');
-  wrapper.style.cssText = 'width:680px; background:#ffffff; padding:32px; box-sizing:border-box; color:#111111;';
-  wrapper.innerHTML = buildInvoiceHTML();
+  // Business name
+  doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(17,24,39);
+  doc.text(bn,L,y);
+  // INVOICE label
+  doc.setTextColor(37,99,235);doc.text('INVOICE',R,y,{align:'right'});
+  y+=6;
 
-  const holder = document.createElement('div');
-  holder.style.cssText = 'position:absolute; top:-9999px; left:0; width:680px; background:#fff; z-index:-1; overflow:hidden;';
-  holder.appendChild(wrapper);
-  document.body.appendChild(holder);
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(107,114,128);
+  let ly=y;
+  if(bo){doc.setTextColor(55,65,81);doc.setFont('helvetica','bold');doc.text(bo,L,ly);ly+=4.5;doc.setFont('helvetica','normal');doc.setTextColor(107,114,128)}
+  if(bp){doc.text(bp,L,ly);ly+=4.5}
+  if(be){doc.text(be,L,ly);ly+=4.5}
+  if(ba){const bl=doc.splitTextToSize(ba,85);doc.text(bl,L,ly);ly+=bl.length*4.5}
 
-  setTimeout(() => {
-    html2pdf().set({
-      margin: [12, 12, 12, 12],
-      filename: `${invNo}-${custName}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', windowWidth: 680 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    }).from(wrapper).save().then(() => {
-      document.body.removeChild(holder);
-      showToast(t('toastDone'));
-    }).catch((err) => {
-      document.body.removeChild(holder);
-      showToast('Error — please try again');
-      console.error('PDF error:', err);
+  let ry=y;
+  doc.setTextColor(107,114,128);
+  doc.text(ino,R,ry,{align:'right'});ry+=4.5;
+  doc.text('Date: '+idt,R,ry,{align:'right'});ry+=4.5;
+
+  y=Math.max(ly,ry)+7;
+
+  // Bill to box
+  doc.setFillColor(249,250,251);
+  doc.roundedRect(L,y,W-L-L+1,20,2,2,'F');
+  doc.setFontSize(8);doc.setTextColor(156,163,175);
+  doc.text('BILL TO',L+4,y+5);
+  doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(17,24,39);
+  doc.text(cn,L+4,y+11);
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(107,114,128);
+  const custLine=[cp,ca].filter(Boolean).join('   ');
+  if(custLine)doc.text(doc.splitTextToSize(custLine,160),L+4,y+16);
+  y+=26;
+
+  // Table header
+  const c1=L,c2=130,c3=155,c4=R;
+  doc.setFillColor(243,244,246);
+  doc.rect(L,y,W-L-L+1,7,'F');
+  doc.setFontSize(8);doc.setTextColor(107,114,128);doc.setFont('helvetica','bold');
+  doc.text('DESCRIPTION',c1+2,y+4.8);
+  doc.text('QTY',c2,y+4.8,{align:'center'});
+  doc.text('RATE',c3,y+4.8,{align:'right'});
+  doc.text('AMOUNT',c4,y+4.8,{align:'right'});
+  y+=7;
+
+  // Items
+  doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(17,24,39);
+  const valid=items.filter(it=>it.desc||it.rate);
+  if(!valid.length){
+    y+=6;doc.setTextColor(156,163,175);doc.setFontSize(10);
+    doc.text('No items added',W/2,y,{align:'center'});y+=6;
+  } else {
+    valid.forEach(it=>{
+      const amt=(+it.qty||0)*(+it.rate||0);
+      const dl=doc.splitTextToSize(it.desc||'-',80);
+      const rh=Math.max(8,dl.length*5+3);
+      doc.text(dl,c1+2,y+5.5);
+      doc.text(String(it.qty||1),c2,y+5.5,{align:'center'});
+      doc.text(cur+' '+(+it.rate||0).toFixed(2),c3,y+5.5,{align:'right'});
+      doc.text(cur+' '+amt.toFixed(2),c4,y+5.5,{align:'right'});
+      doc.setDrawColor(230,230,230);
+      doc.line(L,y+rh,R,y+rh);
+      y+=rh;
     });
-  }, 250);
+  }
+  y+=5;
+
+  // Totals
+  doc.setFontSize(10);
+  doc.setTextColor(107,114,128);doc.text('Subtotal',c3,y,{align:'right'});
+  doc.setTextColor(17,24,39);doc.text(cur+' '+sub.toFixed(2),c4,y,{align:'right'});y+=5.5;
+  if(gst>0){
+    doc.setTextColor(107,114,128);doc.text('GST ('+gst+'%)',c3,y,{align:'right'});
+    doc.setTextColor(17,24,39);doc.text(cur+' '+tax.toFixed(2),c4,y,{align:'right'});y+=5.5;
+  }
+  doc.setDrawColor(17,24,39);doc.setLineWidth(0.5);
+  doc.line(c3-22,y,R,y);y+=5;
+  doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(17,24,39);
+  doc.text('Total',c3,y,{align:'right'});
+  doc.text(cur+' '+grand.toFixed(2),c4,y,{align:'right'});y+=10;
+
+  // Note
+  if(note){
+    doc.setFillColor(255,251,234);
+    const nl=doc.splitTextToSize(note,W-L-L-6);
+    const nh=nl.length*5+6;
+    doc.rect(L,y,W-L-L+1,nh,'F');
+    doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(85,85,85);
+    doc.text(nl,L+4,y+5);
+    y+=nh+5;
+  }
+
+  // Footer
+  doc.setFontSize(8);doc.setTextColor(200,200,200);
+  doc.text('Generated with FreeBillIndia - freebillindia.vercel.app',W/2,287,{align:'center'});
+
+  doc.save(ino+'-'+cn+'.pdf');
+  showToast(t('tdone'));
 }
 
-function shareWhatsApp() {
-  const cur = getCurrency();
-  const gst = parseFloat(document.getElementById('gst').value) || 0;
-  const subtotal = items.reduce((s, it) => s + (+it.qty||0)*(+it.rate||0), 0);
-  const grand = subtotal + subtotal * gst / 100;
-  const get = id => document.getElementById(id).value.trim();
-  const bizName = get('biz-name') || 'Business';
-  const custName = get('cust-name') || 'Customer';
-  const invNo = get('inv-no') || 'INV-001';
-  const invDate = get('inv-date');
-  const note = get('inv-note');
-  const itemLines = items.filter(it=>it.desc||it.rate)
-    .map(it=>`  • ${it.desc} — ${cur}${((+it.qty||0)*(+it.rate||0)).toFixed(2)}`).join('\n');
-  const msg = `🧾 *Invoice from ${bizName}*\n\nInvoice No: ${invNo}\nDate: ${invDate}\nBill to: *${custName}*\n\n*Items:*\n${itemLines||'  (no items)'}\n\n*Total: ${cur}${grand.toFixed(2)}*${gst>0?` (incl. ${gst}% GST)`:''}`
-    +`${note?'\n\n'+note:''}\n\n_Generated at FreeBillIndia — freebillindia.vercel.app_`;
+// ── WHATSAPP ─────────────────────────────────────────────────
+function shareWA(){
+  const cur=getCur(),gst=parseFloat(document.getElementById('gst').value)||0;
+  const sub=items.reduce((s,it)=>s+(+it.qty||0)*(+it.rate||0),0);
+  const grand=sub+sub*gst/100;
+  const g=id=>document.getElementById(id).value.trim();
+  const lines=items.filter(it=>it.desc||it.rate).map(it=>`  • ${it.desc} — ${cur} ${((+it.qty||0)*(+it.rate||0)).toFixed(2)}`).join('\n');
+  const note=g('inv-note');
+  const msg=`🧾 *Invoice from ${g('biz-name')||'Business'}*\n\nInvoice No: ${g('inv-no')||'INV-001'}\nDate: ${g('inv-date')}\nBill to: *${g('cust-name')||'Customer'}*\n\n*Items:*\n${lines||'  (no items)'}\n\n*Total: ${cur} ${grand.toFixed(2)}*${gst>0?` (incl. ${gst}% GST)`:''}`+(note?'\n\n'+note:'')+'\n\n_FreeBillIndia — freebillindia.vercel.app_';
   window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
 }
 
-function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
 }
 
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
+// Init
+const today=new Date();
+document.getElementById('inv-date').value=today.toISOString().split('T')[0];
+document.getElementById('inv-no').value='INV-'+String(Math.floor(Math.random()*900)+100);
 renderItems();
 </script>
 </body>
